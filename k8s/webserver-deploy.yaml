@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver-deploy
+  name: webserver-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver-deploy
+  template:
+    metadata:
+      labels:
+        app: webserver-deploy
+    spec:
+      containers:
+      - image: docmehmet/todo
+        name: todo
+        ports:
+          - containerPort: 80
+        env:
+          - name: MONGO_HOSTNAME
+            value: mongodb-services
+          - name: MONGO_INITDB_DATABASE
+            value: task_manager
+          - name: MONGO_INITDB_ROOT_USERNAME
+            value: admin
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            value: MONGO_INITDB_ROOT_PASSWORD
+        
+

@@ -1,0 +1,8 @@
+{
+    "db": {
+            "url" : "mongodb://mongo:27017/",
+            "name" :"task_manager",
+            "user" :"admin",
+            "password" :"admin"
+    }
+}
